@@ -18,6 +18,14 @@ namespace CrudApi.Controllers
             _context = context;
         }
 
+        [HttpPost]
+        public IActionResult Create(Carro carro)
+        {
+            _context.Add(carro);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(ObterPorId), new {id = carro.Id}, carro);
+        }
+
         [HttpGet("{id}")]
         public IActionResult ObterPorId(int id)
         {
@@ -35,12 +43,38 @@ namespace CrudApi.Controllers
             return Ok(carro);
         }
 
-        [HttpPost]
-        public IActionResult Create(Carro carro)
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(int id, Carro carro)
         {
-            _context.Add(carro);
+            var CarroBanco = _context.Carros.Find(id);
+
+            if(CarroBanco == null)
+                return NotFound();
+
+            CarroBanco.Marca = carro.Marca;
+            CarroBanco.Modelo = carro.Modelo;
+            CarroBanco.Ano = carro.Ano;
+            CarroBanco.Cor = carro.Cor;
+            CarroBanco.Placa = carro.Placa;
+
+            _context.Carros.Update(CarroBanco);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(ObterPorId), new {id = carro.Id}, carro);
+
+            return Ok(CarroBanco);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            var CarroBanco = _context.Carros.Find(id);
+
+            if(CarroBanco == null)
+                return NotFound();
+
+            _context.Carros.Remove(CarroBanco);
+            _context.SaveChanges();
+
+            return NoContent();
         }
 
     }
