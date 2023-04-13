@@ -10,9 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarrosComponent } from './components/carros/carros.component';
 
+
 @NgModule({
   declarations: [
-    AppComponent, CarrosComponent
+    AppComponent,
+    CarrosComponent
   ],
   imports: [
     BrowserModule,
