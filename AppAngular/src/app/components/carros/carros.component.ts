@@ -1,8 +1,8 @@
-import { Carro } from './../../Carro';
+import { Carro } from 'src/app/Carro';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { CarrosService } from 'src/app/carros.service';
+import { CarrosService } from './../../carros.service';
 
 
 @Component({
@@ -53,7 +53,7 @@ export class CarrosComponent implements OnInit {
       this.tituloFormulario = `Atualizar ${resultado.Marca} ${resultado.Modelo}`;
 
       this.formulario = new FormGroup({
-        carroId: new FormControl(resultado.carroId),
+        carroId: new FormControl(resultado.Id),
         marca: new FormControl(resultado.Marca),
         modelo: new FormControl(resultado.Modelo),
         ano: new FormControl(resultado.Ano),
@@ -70,7 +70,7 @@ export class CarrosComponent implements OnInit {
       this.carrosService.Atualizar(carro).subscribe((resultado) => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
-        alert('Pessoa atualizada com sucesso');
+        alert('Carro atualizado com sucesso');
         this.carrosService.ObterTodos().subscribe((registros) => {
           this.carros = registros;
         });
@@ -79,7 +79,7 @@ export class CarrosComponent implements OnInit {
       this.carrosService.Atualizar(carro).subscribe((resultado) => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
-        alert('Pessoa inserida com sucesso');
+        alert('Carro inserido com sucesso');
         this.carrosService.ObterTodos().subscribe((registros) => {
           this.carros = registros;
         });
@@ -94,13 +94,12 @@ export class CarrosComponent implements OnInit {
 
   ExibirConfirmacaoExclusao(conteudoModal: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(conteudoModal);
-    this.carroId = this.carroId;
     this.nomeCarro = this.nomeCarro;
   }
 
   ExcluirCarro(carroId: any) {
     this.carrosService.ExcluirCarro(carroId).subscribe(resultado => {
-      this.modalRef.hide();
+      this.modalRef?.hide();
       alert('Carro excluído com sucesso');
       this.carrosService.ObterTodos().subscribe(registros => {
         this.carros = registros;

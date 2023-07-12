@@ -24,10 +24,10 @@
           <td>{{ carro.Cor }}</td>
           <td>{{ carro.Placa }}</td>
           <td>
-            <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtualizacao(carro.Id)">
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtualizacao(carro?.Id || 0)">
               Atualizar</button
             >|
-            <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(carro.carroId, carro.Modelo, conteudoModal)">
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(carro.carroId)">
               Excluir
             </button>
           </td>
@@ -108,7 +108,7 @@
   <ng-template #conteudoModal>
       <div class="modal-header">
         <h4 class="modal-title pull-left">Confirmação de Exclusão</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef?.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -117,7 +117,7 @@
       </div>
   
       <div class="modal-footer">
-          <button type="button" class="btn btn-light" (click)="modalRef.hide()">Não</button>
+          <button type="button" class="btn btn-light" (click)="modalRef?.hide()">Não</button>
           <button type="button" class="btn btn-outline-danger" (click)="ExcluirCarro(carroId)">Sim</button>
       </div>
     </ng-template>
