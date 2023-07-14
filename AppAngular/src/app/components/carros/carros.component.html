@@ -18,16 +18,16 @@
         </tr>
   
         <tr *ngFor="let carro of carros">
-          <td>{{ carro.Marca }}</td>
-          <td>{{ carro.Modelo }}</td>
-          <td>{{ carro.Ano }}</td>
-          <td>{{ carro.Cor }}</td>
-          <td>{{ carro.Placa }}</td>
+          <td>{{ carro.marca }}</td>
+          <td>{{ carro.modelo }}</td>
+          <td>{{ carro.ano }}</td>
+          <td>{{ carro.cor }}</td>
+          <td>{{ carro.placa }}</td>
           <td>
-            <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtualizacao(carro?.Id || 0)">
-              Atualizar</button
-            >|
-            <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(carro.carroId)">
+            <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAtualizacao(carro?.id || 0)">
+              Atualizar</button>
+
+            <button type="button" class="btn btn-sm btn-outline-danger" (click)="ExibirConfirmacaoExclusao(carro.id, nomeCarro, conteudoModal)">
               Excluir
             </button>
           </td>
@@ -118,6 +118,6 @@
   
       <div class="modal-footer">
           <button type="button" class="btn btn-light" (click)="modalRef?.hide()">Não</button>
-          <button type="button" class="btn btn-outline-danger" (click)="ExcluirCarro(carroId)">Sim</button>
+          <button type="button" class="btn btn-outline-danger" (click)="ExcluirCarro(id)">Sim</button>
       </div>
     </ng-template>

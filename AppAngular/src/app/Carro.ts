@@ -1,9 +1,8 @@
 export class Carro {
-    Id: number | undefined;
-    Marca: string | undefined;
-    Modelo: string | undefined;
-    Ano: number | undefined;
-    Cor: string | undefined;
-    Placa: string | undefined;
-    carroId: any;
+    id!: number;
+    marca: string | any;
+    modelo: string | any;
+    ano: number | any;
+    cor: string | any;
+    placa: string | any;
 }

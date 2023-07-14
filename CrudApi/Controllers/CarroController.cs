@@ -36,7 +36,7 @@ namespace CrudApi.Controllers
             return Ok(carro);
         }
 
-        [HttpGet("ObterTodos")]
+        [HttpGet]
         public IActionResult ObterTodos()
         {
             var carro = _context.Carros.ToList();

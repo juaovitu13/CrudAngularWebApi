@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CarrosService {
-  url = 'http://localhost:5088/Obtertodos';
+  url = 'http://localhost:5088';
 
   constructor(private http: HttpClient) {}
 

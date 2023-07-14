@@ -13,18 +13,18 @@ import { CarrosService } from './../../carros.service';
 export class CarrosComponent implements OnInit {
 
   formulario: any;
-  tituloFormulario: string | undefined;
-  carros: Carro[] | undefined;
-  nomeCarro: string | undefined;
-  carroId: number | undefined;
+  tituloFormulario!: string;
+  carros: Carro[] = [];
+  nomeCarro!: string;
+  id!: number;
 
   visibilidadeTabela: boolean = true;
-  visibilidadeFormulario: boolean = false; 
+  visibilidadeFormulario: boolean = false;
   
   modalRef: BsModalRef | undefined;
 
   constructor(private carrosService: CarrosService,
-    private modalService: BsModalService) {}
+    private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.carrosService.ObterTodos().subscribe((resultado) => {
@@ -45,20 +45,20 @@ export class CarrosComponent implements OnInit {
     });
   }
 
-  ExibirFormularioAtualizacao(carroId: number): void {
+  ExibirFormularioAtualizacao(id: number): void {
     this.visibilidadeTabela = false;
     this.visibilidadeFormulario = true;
 
-    this.carrosService.ObterPorId(carroId).subscribe((resultado) => {
-      this.tituloFormulario = `Atualizar ${resultado.Marca} ${resultado.Modelo}`;
+    this.carrosService.ObterPorId(id).subscribe((resultado) => {
+      this.tituloFormulario = `Atualizar ${resultado.marca} ${resultado.modelo}`;
 
       this.formulario = new FormGroup({
-        carroId: new FormControl(resultado.Id),
-        marca: new FormControl(resultado.Marca),
-        modelo: new FormControl(resultado.Modelo),
-        ano: new FormControl(resultado.Ano),
-        cor: new FormControl(resultado.Cor),
-        placa: new FormControl(resultado.Placa),
+        id: new FormControl(resultado.id),
+        marca: new FormControl(resultado.marca),
+        modelo: new FormControl(resultado.modelo),
+        ano: new FormControl(resultado.ano),
+        cor: new FormControl(resultado.cor),
+        placa: new FormControl(resultado.placa),
       });
     });
   }
@@ -66,7 +66,7 @@ export class CarrosComponent implements OnInit {
   EnviarFormulario(): void {
     const carro: Carro = this.formulario.value;
 
-    if (carro.carroId > 0) {
+    if (carro.id > 0) {
       this.carrosService.Atualizar(carro).subscribe((resultado) => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
@@ -76,7 +76,7 @@ export class CarrosComponent implements OnInit {
         });
       });
     } else {
-      this.carrosService.Atualizar(carro).subscribe((resultado) => {
+      this.carrosService.Salvar(carro).subscribe((resultado) => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
         alert('Carro inserido com sucesso');
@@ -92,13 +92,14 @@ export class CarrosComponent implements OnInit {
     this.visibilidadeFormulario = false;
   }
 
-  ExibirConfirmacaoExclusao(conteudoModal: TemplateRef<any>): void {
+  ExibirConfirmacaoExclusao(id: number, nomeCarro: string, conteudoModal: TemplateRef<any>): void {
     this.modalRef = this.modalService.show(conteudoModal);
-    this.nomeCarro = this.nomeCarro;
+    this.id = id;
+    this.nomeCarro = nomeCarro;
   }
 
-  ExcluirCarro(carroId: any) {
-    this.carrosService.ExcluirCarro(carroId).subscribe(resultado => {
+  ExcluirCarro(id : number) {
+    this.carrosService.ExcluirCarro(id).subscribe(resultado => {
       this.modalRef?.hide();
       alert('Carro excluído com sucesso');
       this.carrosService.ObterTodos().subscribe(registros => {
@@ -108,3 +109,4 @@ export class CarrosComponent implements OnInit {
   }
 
 }
+
