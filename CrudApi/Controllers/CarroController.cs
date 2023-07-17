@@ -43,10 +43,10 @@ namespace CrudApi.Controllers
             return Ok(carro);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Atualizar(int id, Carro carro)
+        [HttpPut]
+        public IActionResult Atualizar(Carro carro)
         {
-            var CarroBanco = _context.Carros.Find(id);
+            var CarroBanco = _context.Carros.Find(carro.Id);
 
             if(CarroBanco == null)
                 return NotFound();
