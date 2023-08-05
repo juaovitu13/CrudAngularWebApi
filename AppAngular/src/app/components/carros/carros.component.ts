@@ -63,12 +63,12 @@ export class CarrosComponent implements OnInit {
       });
     });
   }
-
+  
   EnviarFormulario(): void {
     const carro: Carro = this.formulario.value;
 
     if (carro.id > 0) {
-      this.carrosService.Atualizar(carro).subscribe((resultado) => {
+      this.carrosService.Atualizar(carro).subscribe(() => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
         alert('Carro atualizado com sucesso');
@@ -77,7 +77,7 @@ export class CarrosComponent implements OnInit {
         });
       });
     } else {
-      this.carrosService.Salvar(carro).subscribe((resultado) => {
+      this.carrosService.Salvar(carro).subscribe(() => {
         this.visibilidadeFormulario = false;
         this.visibilidadeTabela = true;
         alert('Carro inserido com sucesso');

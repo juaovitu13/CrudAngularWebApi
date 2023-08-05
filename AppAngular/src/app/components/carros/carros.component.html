@@ -10,14 +10,17 @@
   
       <table class="table table-striped table-hover table-sm" *ngIf="carros">
         <tr class="thead-light">
+          <th>Id</th>
           <th>Marca</th>
           <th>Modelo</th>
           <th>Ano</th>
           <th>Cor</th>
           <th>Placa</th>
+          <th>Ações</th>
         </tr>
   
         <tr *ngFor="let carro of carros">
+          <td>{{ carro.id }}</td>
           <td>{{ carro.marca }}</td>
           <td>{{ carro.modelo }}</td>
           <td>{{ carro.ano }}</td>
@@ -41,8 +44,8 @@
       <div class="col-6 border boder-light rounded p-5 shadow" *ngIf="formulario">
         <h6>{{ tituloFormulario }}</h6>
         <hr />
-  
         <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+          
           <div class="form-group">
             <label>Marca</label>
             <input
