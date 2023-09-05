@@ -4,7 +4,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { CarrosService } from './../../carros.service';
 
-
 @Component({
   selector: 'app-carros',
   templateUrl: './carros.component.html',
@@ -13,19 +12,18 @@ import { CarrosService } from './../../carros.service';
   
 export class CarrosComponent implements OnInit {
 
-  formulario: any;
-  tituloFormulario!: string;
+  formulario!: FormGroup; // Usar FormGroup em vez de any para melhor tipo de verificação
+  tituloFormulario: string = ''; // Inicializar com uma string vazia
   carros: Carro[] = [];
-  nomeCarro!: string;
-  id!: number;
+  nomeCarro: string = '';
+  id: number = 0; // Inicializar com zero
 
   visibilidadeTabela: boolean = true;
   visibilidadeFormulario: boolean = false;
   
   modalRef: BsModalRef | undefined;
 
-  constructor(private carrosService: CarrosService,
-    private modalService: BsModalService) { }
+  constructor(private carrosService: CarrosService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
     this.carrosService.ObterTodos().subscribe((resultado) => {
@@ -38,11 +36,11 @@ export class CarrosComponent implements OnInit {
     this.visibilidadeFormulario = true;
     this.tituloFormulario = 'Novo Carro';
     this.formulario = new FormGroup({
-      marca: new FormControl(null),
-      modelo: new FormControl(null),
-      ano: new FormControl(null),
-      cor: new FormControl(null),
-      placa: new FormControl(null),
+      marca: new FormControl(''), // Inicializar com uma string vazia
+      modelo: new FormControl(''), // Inicializar com uma string vazia
+      ano: new FormControl(null), // Inicializar com null
+      cor: new FormControl(''), // Inicializar com uma string vazia
+      placa: new FormControl(''), // Inicializar com uma string vazia
     });
   }
 
@@ -108,6 +106,6 @@ export class CarrosComponent implements OnInit {
       });
     });
   }
-
 }
+
 
