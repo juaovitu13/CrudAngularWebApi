@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vnmOfc0kmbaEPSBgrNGzTvhCGJX7goMv7trJ5IVdMI1dFR06a1dB4k/jcVRac1xZ0Jjc0eJ8nCblZ1GY3dgWeg==",
+  "dgSpecHash": "F77Q4YoTk1iwzTqr9djHcd83NdTnzX6C2hivjlknJAGTtm9wDjMEsdWXCUZnBBmp2j1m9tiVsFg+ew8bv6bIpg==",
   "success": true,
   "projectFilePath": "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/CrudApi.csproj",
   "expectedPackageFiles": [
