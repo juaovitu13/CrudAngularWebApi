@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/CrudApi.csproj": {}
+    "C:\\Users\\jvgam\\OneDrive\\Documents\\VsCode\\GitHub\\CrudAngularWebApi\\CrudApi\\CrudApi.csproj": {}
   },
   "projects": {
-    "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/CrudApi.csproj": {
+    "C:\\Users\\jvgam\\OneDrive\\Documents\\VsCode\\GitHub\\CrudAngularWebApi\\CrudApi\\CrudApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/CrudApi.csproj",
+        "projectUniqueName": "C:\\Users\\jvgam\\OneDrive\\Documents\\VsCode\\GitHub\\CrudAngularWebApi\\CrudApi\\CrudApi.csproj",
         "projectName": "CrudApi",
-        "projectPath": "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/CrudApi.csproj",
-        "packagesPath": "/home/usuario/.nuget/packages/",
-        "outputPath": "/home/usuario/Curso_Angular/Projetos/CrudAngularWebApi/CrudApi/obj/",
+        "projectPath": "C:\\Users\\jvgam\\OneDrive\\Documents\\VsCode\\GitHub\\CrudAngularWebApi\\CrudApi\\CrudApi.csproj",
+        "packagesPath": "C:\\Users\\jvgam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jvgam\\OneDrive\\Documents\\VsCode\\GitHub\\CrudAngularWebApi\\CrudApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/usuario/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\jvgam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -32,39 +32,44 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.2, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.9, )"
+              "version": "[8.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -90,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/7.0.400/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
